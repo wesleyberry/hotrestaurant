@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation Page</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="text-center"> Ken's Kurry</h1>
+            <hr>
+            <h2 class="text-center">Make your reservation</h2>
+            <br>
+
+            <div class="text-center">
+                <a href="/tables"><button type="button" class="btn btn-lg btn-success"> View Tables</button></a>
+                <a href="/"><button type="button" class="btn btn-lg btn-primary">Home</button></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!-- Party Form -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Party Info</h4>
+                    </div>
+                    <div class="panel-body">
+
+                        <form role="form">
+
+                            <div class="form-group">
+                                <label for="reserve-name">Name</label>
+                                <input type="text" class="form-control" id="groupName">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reserve-phone">Phone Number</label>
+                                <input type="text" class="form-control" id="phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reserve-email">Email</label>
+                                <input type="text" class="form-control" id="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reserve-unique-id">Unique ID</label>
+                                <input type="text" class="form-control" id="uniqueId">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary submit" id="add-btn">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <div class="container">
+                <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+    $("#add-btn").on("click", function (event) {
+
+        event.preventDefault();
+        var newReservation = {
+            customerName: $("#groupName").val().trim(),
+            phoneNumber: $("#phone").val().trim(),
+            customerEmail: $("#email").val().trim(),
+            customerID: $("#uniqueId").val().trim()
+        };
+        
+        console.log(newReservation);
+        // Clear the form when submitting
+        $("#grouName").val("");
+        $("#phone").val("");
+        $("#email").val("");
+        $("#uniqueId").val("");
+    });
+</script>
