@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tables Page</title>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 class="text-center"> Ken's Kurry</h1>
+      <hr>
+      <h2 class="text-center">Current Reservations and Waiting List</h2>
+      <br>
+
+      <div class="text-center">
+        <a href="/reservation"><button type="button" class="btn btn-lg btn-success"> Make Reservation</button></a>
+        <a href="/"><button type="button" class="btn btn-lg btn-primary">Home</button></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+
+        <!-- Current Tables in Use -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Current Reservations</h4>
+          </div>
+          <div class="list-res-group" id="current-res-section">
+          </div>
+        </div>
+
+        <!-- Waiting List Panel -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Waiting List</h4>
+          </div>
+          <div class="list-waitlist-group" id="current-waitlist-section">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="footer">
+      <div class="container">
+        <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a
+            href="/api/waitlist">API Wait List</a></p>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+
+
+
+
+<script type="text/javascript">
+
+
+
+  $("#add-btn").on("click", function (event) {
+    event.preventDefault();
+
+    var newTable = {
+      name: $("#name").val().trim(),
+      role: $("#role").val().trim(),
+      age: $("#age").val().trim(),
+      forcePoints: $("#force-points").val().trim()
+    };
+  });
+
+</script>
+
+</html
